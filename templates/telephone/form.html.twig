@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire Telephone{% endblock %}
+
+{% form_theme formTelephone 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+
+    {% if isCreate %}
+        <h1>Form Create</h1>
+    {% else %}
+        <h1>Form Edit</h1>
+    {% endif %}
+
+    {{ form_start(formTelephone) }}
+
+    {{ form_row(formTelephone.modelName) }}
+    {{ form_row(formTelephone.img) }}
+    {{ form_row(formTelephone.price) }}
+    {{ form_row(formTelephone.description) }}
+    {{ form_row(formTelephone.stockage) }}
+
+
+    {% if isCreate %}
+        <input class="btn btn-success" type="submit" value="Créer">
+    {% else %}
+        <input class="btn btn-success" type="submit" value="Edit">
+    {% endif %}
+
+    {{ form_end(formTelephone) }}
+
+    <hr><a href="{{ path('telephoneIndex') }}" class="btn btn-primary">Retour</a>
+
+{% endblock %}

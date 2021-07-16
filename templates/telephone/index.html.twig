@@ -3,8 +3,9 @@
 {% block title %}Affichage de tout les telephone!{% endblock %}
 
 {% block body %}
+    <a href="{{ path('telephoneCreate') }}" class="btn btn-success">Ajoutez</a>
 
-<div class="row">
+    <div class="row">
     {% for telephone in telephones %}
         <div class="card" style="width: 18rem;">
             <img src="{{ telephone.img }}" class="card-img-top" alt="{{ telephone.modelName }}">
@@ -16,6 +17,7 @@
                 <p class="card-text">date de sorti : {{ telephone.createdDate | date('d M Y') }} </p>
 
                 <a href="{{ path('telephoneDel', {id : telephone.id}) }}" class="btn btn-danger">Supprimer</a>
+                <a href="{{ path('telephoneEdit', {id : telephone.id}) }}" class="btn btn-info">Edit</a>
                 <a href="{{ path('telephoneShow', {id : telephone.id }) }}" class="btn btn-primary">Voir plus</a>
             </div>
         </div>

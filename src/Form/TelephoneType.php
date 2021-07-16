@@ -17,7 +17,7 @@ class TelephoneType extends AbstractType
             ->add('price')
             ->add('description')
             ->add('stockage')
-            ->add('createdDate')
+            //->add('createdDate')
         ;
     }
 
