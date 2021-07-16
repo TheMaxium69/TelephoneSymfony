@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ telephone.modelName | capitalize }}{% endblock %}
+
+{% block body %}
+<div class="card" style="width: 18rem;">
+                <img src="{{ telephone.img }}" class="card-img-top" alt="{{ telephone.modelName }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ telephone.modelName | capitalize }}</h5>
+                    <p class="card-text">{{ telephone.description | capitalize }}</p>
+                    <p class="card-text">Stockage : {{ telephone.stockage }} go</p>
+                    <p class="card-text">Prix : {{ telephone.price }} €</p>
+                    <p class="card-text">date de sorti : {{ telephone.createdDate | date('d M Y') }} </p>
+
+
+                    <a href="{{ path('telephoneDel', {id : telephone.id}) }}" class="btn btn-danger">Supprimer</a>
+                </div>
+            </div>
+
+
+    <a href="{{ path('telephoneIndex') }}" class="btn btn-info">Retour</a>
+
+{% endblock %}
