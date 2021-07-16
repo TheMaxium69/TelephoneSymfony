@@ -47,6 +47,12 @@ class Telephone
      */
     private $createdDate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Constructeur::class, inversedBy="telephones")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $constructeur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +126,18 @@ class Telephone
     public function setCreatedDate(\DateTimeInterface $createdDate): self
     {
         $this->createdDate = $createdDate;
+
+        return $this;
+    }
+
+    public function getConstructeur(): ?Constructeur
+    {
+        return $this->constructeur;
+    }
+
+    public function setConstructeur(?Constructeur $constructeur): self
+    {
+        $this->constructeur = $constructeur;
 
         return $this;
     }
